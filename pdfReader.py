@@ -27,7 +27,7 @@ def readPdfGS(pdf_path: str) -> bool:
     )
 
     if result.returncode != 0:
-        print("Error en Ghostscript:", result.stderr)
+        print("{strings.ERROR_GS_NOT_FOUND}:", result.stderr)
         return None
 
     return result.stdout
