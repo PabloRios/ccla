@@ -35,7 +35,7 @@ class Aplicacion:
 
         try:
 
-            texts = processPath.processPath(args.path)
+            texts = processPath.processPath(path)
             facturas = processText.processText(texts)
 
             self.text_output.delete("1.0", tk.END)
