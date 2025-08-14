@@ -2,7 +2,7 @@ import re
 from model.factura import Factura
 import strings
 
-patronRazonSocial = r"Raz.n Social: ([A-Za-z].*[A-Za-z])  *Fecha de.*"
+patronRazonSocial = r"Raz..?n Social: ([A-Za-z].*[A-Za-z])  *Fecha de.*"
 
 r_CbteModo = r"CAE.?"
 r_CuitEmisor = r"CUIT: ([0-9]{11})"
@@ -11,7 +11,7 @@ r_CbteTipo = r""
 r_CbteNro = r"Comp. Nro: ([0-9]{8})"
 r_CbteFch = r"Fecha de Emisi..?n: ([0-9]{2}/[0-9]{2}/[0-9]{4})"
 r_ImpTotal = r"Importe Total:(?:.*) ([0-9]+(?:\,[0-9]{2})?)"
-r_CodAutorizacion = r"CAE.? N°: ([0-9]{14})"
+r_CodAutorizacion = r"CAE.? N.?.?: ([0-9]{14})"
 r_DocTipoReceptor = r""
 r_DocNroReceptor = r"\n     CUIT: ([0-9]{11})"
 
