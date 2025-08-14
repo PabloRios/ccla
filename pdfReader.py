@@ -1,12 +1,18 @@
 
 import subprocess
+import os
 
 
 def readPdfGS(pdf_path: str) -> bool:
 
+    if os.name == 'nt':
+        ghostscriptBin = "gswin64c"
+    else:
+        ghostscriptBin = "gs"
+
     result = subprocess.run(
         [
-            "gs",  # o "gswin64c" en Windows
+            ghostscriptBin,
             "-dBATCH",
             "-dNOPAUSE",
             "-dQUIET",
@@ -19,4 +25,9 @@ def readPdfGS(pdf_path: str) -> bool:
         capture_output=True,
         text=True
     )
+
+    if result.returncode != 0:
+        print("Error en Ghostscript:", result.stderr)
+        return None
+
     return result.stdout
